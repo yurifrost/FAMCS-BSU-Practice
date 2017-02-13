@@ -1,0 +1,5 @@
+commit 58bbcd45a3f624564a582d6a7e7098ca07c83093
+Author: Yuri <yuramoroz79@gmail.com>
+Date:   Mon Feb 13 19:56:04 2017 +0300
+
+    add .gitignore
