@@ -1,0 +1,23 @@
+
+h1{
+	color: green;
+	opacity: 0.5;
+
+}
+
+.news{
+	border-style: solid;
+}
+
+body{
+background-image: url('1.jpg');
+}
+
+.topbuttons{
+	color: purple;
+	text-align: right;
+	font-style: italic;
+	border-width: medium;
+	border-color: red; 
+	
+}
