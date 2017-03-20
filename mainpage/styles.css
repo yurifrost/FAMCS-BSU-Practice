@@ -2,15 +2,20 @@
 h1{
 	color: green;
 	opacity: 0.5;
+	font-size: 65px;
 
 }
 
 .news{
 	border-style: solid;
+	overflow: auto;
+	width: 70%;
+	display: inline-block;
 }
 
 body{
-background-image: url('1.jpg');
+	background-image: url('1.jpg');
+	text-align: center;
 }
 
 .topbuttons{
@@ -19,5 +24,17 @@ background-image: url('1.jpg');
 	font-style: italic;
 	border-width: medium;
 	border-color: red; 
-	
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-bottom: 25px;
+	padding: 15px; 
+}
+
+.topbuttons input{
+	background-color: pink;
+	color: white;
+}
+
+.topbuttons: hover {
+	border: 10px solid green;
 }
