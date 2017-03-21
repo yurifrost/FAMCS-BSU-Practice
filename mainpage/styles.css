@@ -6,6 +6,10 @@ h1{
 
 }
 
+h3{
+	text-align: center;
+}
+
 .news{
 	border-style: solid;
 	overflow: auto;
