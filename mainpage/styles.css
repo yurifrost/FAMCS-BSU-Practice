@@ -3,7 +3,12 @@ h1{
 	color: green;
 	opacity: 0.5;
 	font-size: 65px;
+	text-align: left;
 
+}
+
+hr{
+	color: black;
 }
 
 h3{
@@ -22,23 +27,49 @@ body{
 	text-align: center;
 }
 
-.topbuttons{
-	color: purple;
+.rightbuttons{
 	text-align: right;
-	font-style: italic;
+	color: purple;
 	border-width: medium;
-	border-color: red; 
-	margin-left: 25px;
-	margin-right: 25px;
-	margin-bottom: 25px;
 	padding: 15px; 
 }
 
-.topbuttons input{
-	background-color: pink;
-	color: white;
+.rightbuttons input{
+	color: purple;
+	text-align: right;
+	border-width: medium;
+	padding: 15px; 
 }
 
-.topbuttons: hover {
-	border: 10px solid green;
+.innerbuttons {
+	text-align: right;
+	color: purple;
+	border-width: medium;
+	padding: 15px; 
+
 }
+
+.innerbuttons input{
+	text-align: right;
+	color: purple;
+	border-width: medium;
+	padding: 15px; 
+
+}
+
+.leftbuttons {
+	text-align: left;
+	color: purple;
+	border-width: medium;
+	padding: 15px; 
+}
+
+
+.leftbuttons input{
+	text-align: left;
+	color: purple;
+	border-width: medium;
+	padding: 15px; 
+}
+
+
