@@ -1,4 +1,4 @@
-// alert('Привет');
+/* alert('Привет');
 "use strict";
 var articles = [
   {
@@ -88,16 +88,16 @@ var articleRenderer = (function () {
     var articleListNode;
 
     function init() {
-        /* DOM Загрузился.
-           Можно найти в нем нужные элементы и сохранить в переменные */
+        /!* DOM Загрузился.
+           Можно найти в нем нужные элементы и сохранить в переменные *!/
         aritcleTemplate = document.querySelector('#template-article-list-item');
         articleListNode = document.querySelector('.article-list');
     }
 
     function insertArticlesInDOM(articles) {
-        /* для массива объектов статей получим соотвествующие HTML элементы */
+        /!* для массива объектов статей получим соотвествующие HTML элементы *!/
         var articlesNodes = renderArticles(articles);
-        /* вставим HTML элементы в '.article-list' элемент в DOM. */
+        /!* вставим HTML элементы в '.article-list' элемент в DOM. *!/
         articlesNodes.forEach(function (node) {
             articleListNode.appendChild(node);
         });
@@ -108,17 +108,17 @@ var articleRenderer = (function () {
     }
 
     function renderArticles(articles) {
-        /* каждый объект article из массива преобразуем в HTML элемент */
+        /!* каждый объект article из массива преобразуем в HTML элемент *!/
         return articles.map(function (article) {
             return renderArticle(article);
         });
     }
 
     function renderArticle(article) {
-        /*
+        /!*
          Используем template из DOM, заполним его данными конкретной статьи - article.
          Этот код можно сделать лучше ...
-        */
+        *!/
         var template = aritcleTemplate;
         template.content.querySelector('.article-list-item').dataset.id = article.id;
         template.content.querySelector('.article-list-item-title').textContent = article.title;
@@ -126,13 +126,13 @@ var articleRenderer = (function () {
        template.content.querySelector('.article-list-item-author').textContent = article.author;
         template.content.querySelector('.article-list-item-date').textContent = formatDate(article.createdAt);
 
-        /*
+        /!*
          Склонируем полученный контент из template и вернем как результат
-        */
+        *!/
         return template.content.querySelector('.article-list-item').cloneNode(true);
     }
 
-    /* Date -> 16/05/2015 09:50 */
+    /!* Date -> 16/05/2015 09:50 *!/
     function formatDate(d) {
         return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' +
             d.getHours() + ':' + d.getMinutes();
@@ -145,11 +145,11 @@ var articleRenderer = (function () {
     };
 }());
 
-/*
+/!*
     Этот модуль будет использоваться для пагинации:
         1. Содержит в себе данные о текущей странице, сколько всего статей на странице
         2. Содержит ссылку на кнопку "Показать еще", отбрабатывает клики на кнопку. Прячет кнопку, если больше статей начнет
-*/
+*!/
 
 var pagination = (function () {
     var ITEMS_PER_PAGE = 3; // статей на 1-ой странице
@@ -158,10 +158,10 @@ var pagination = (function () {
     var showMoreButton;
     var showMoreCallback; // функция, которую вызывать, когда произошел клик по кнопке
 
-    /*
+    /!*
         Total: Всего статей в ArticleModel. (Надо будет еще учесть, что total меняется при применении фильтров)
         showMoreCb: функция, которую надо вызвать при клике на кнопку "Показать Еще"
-    */
+    *!/
     function init(_total, _showMoreCallback) {
         currentPage = 1;
         total = _total;
@@ -169,10 +169,10 @@ var pagination = (function () {
         showMoreButton = document.getElementById('pagination-show-more');
         showMoreButton.addEventListener('click', handleShowMoreClick);
 
-        /* Не показывать кнопку если статей нет */
+        /!* Не показывать кнопку если статей нет *!/
         showOrHideMoreButton();
 
-        /* Вернуть skip, top для начальной отрисовки статей */
+        /!* Вернуть skip, top для начальной отрисовки статей *!/
         return getParams();
     }
 
@@ -187,7 +187,7 @@ var pagination = (function () {
 
     function nextPage() {
         currentPage = currentPage + 1;
-        /* возможно, статей больше нет, спрятать кнопку */
+        /!* возможно, статей больше нет, спрятать кнопку *!/
         showOrHideMoreButton();
 
         return getParams();
@@ -210,11 +210,11 @@ var pagination = (function () {
 
 }());
 
-/*
+/!*
     Этот модуль контролирует форму Filter.
     Собирает все данные из элементов в один объект filterConfig
     Он вызывает перерисовку статей, когда пользователь применил новый фильтр.
-*/
+*!/
 var filter = (function () {
     var form;
     var submitButton;
@@ -230,7 +230,7 @@ var filter = (function () {
     }
 
     function getFilter() {
-        /* Тут происходит сбор всех фильтров: АВТОР + ДАТА + ТЕГИ. Потом этот объект передадим в функцию getArticles как fitlerConfig */
+        /!* Тут происходит сбор всех фильтров: АВТОР + ДАТА + ТЕГИ. Потом этот объект передадим в функцию getArticles как fitlerConfig *!/
         var authorSelect = form.elements.author;
         if (authorSelect.value === 'all') {
             return {};
@@ -252,46 +252,46 @@ var filter = (function () {
 
 }());
 
-/*
+/!*
     Функция startApp вызовется, когда браузер полностью загрузит и распарсит исходный HTML (index.html)
     DOMContentLoaded – означает, что все DOM-элементы разметки уже созданы,
     можно их искать, вешать обработчики, создавать интерфейс, но при этом, возможно,
     ещё не догрузились какие-то картинки или стили.
-*/
+*!/
 document.addEventListener('DOMContentLoaded', startApp);
 
 function startApp() {
-    /* DOM Загрузился.
-       Можно найти в нем нужные элементы и сохранить в переменные */
+    /!* DOM Загрузился.
+       Можно найти в нем нужные элементы и сохранить в переменные *!/
     articleRenderer.init();
-    /*
+    /!*
         Инициализация фильтра. Это самое важное, потому что от него зависит и пагинация и статьи
         Функция renderArticlesWithFilterConfig будет вызываться, когда пользователь применит новый фильтр.
         Она удалит все статьи из DOM. Заново проинициализурет пагинацию. Нарисует нужные статьи
-    */
+    *!/
     var filterConfig = filter.init(renderArticlesWithFilterConfig);
-    /* Отрисовать статьи с начальным фильтром */
+    /!* Отрисовать статьи с начальным фильтром *!/
     renderArticlesWithFilterConfig(filterConfig);
 
     function renderArticlesWithFilterConfig(filterConfig) {
-        /* Перед отображением статей с новым фильтром. Удалим из дома старые статьи */
+        /!* Перед отображением статей с новым фильтром. Удалим из дома старые статьи *!/
         articleRenderer.removeArticlesFromDom();
-        /*
+        /!*
             Инициализируем пагинацию.
             Для этого передаем сколько всего статей: total
             и функцию, которую вызывать при клике на кнопку "Показать Еще":
             анонимную функцию, которая, кроме переденных из pagination параметров skip и top, учтет текущий фильтр filterConfig.
-        */
+        *!/
         var total = articleModel.getArticlesCount(filterConfig);
         var paginationParams = pagination.init(total, function (skip, top) {
             renderArticles(skip, top, filterConfig);
         });
 
-        /* Нарисуем статьи из массива articles в DOM используя полученный фильтр и начальную пагинацию */
+        /!* Нарисуем статьи из массива articles в DOM используя полученный фильтр и начальную пагинацию *!/
         renderArticles(paginationParams.skip, paginationParams.top, filterConfig);
     }
 
-    /* Свяжем модель и отображение списка статей. Функция добавит новые статьи в конец списка */
+    /!* Свяжем модель и отображение списка статей. Функция добавит новые статьи в конец списка *!/
     function renderArticles(skip, top, filterConfig) {
         // 1. Достанем нужные статьи из модели
         var articles = articleModel.getArticles(skip, top, filterConfig);
@@ -302,4 +302,4 @@ function startApp() {
 }
 
 
-];
+];*/
