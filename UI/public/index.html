@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/hovers.css">
+    <link rel="shortcut icon" href="../public/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="header">
+    <div class="flex-header-content">
+        <h1 class="head-title">NEWS</h1>
+        <div class="all-buttons">
+            <div class="login-buttons">
+                <button class="sign-in">Sign in</button>
+                <button class="sign-up">Sign up</button>
+            </div>
+            <div class="logout-button">
+                <div class="nickname"></div>
+                <button class="log-out">Log out</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex-tools">
+        <div class="sort">
+            <label>
+                Сортировка
+                <button class="sort-triggering"><i class="fa fa-arrow-down"></i>
+                </button>
+            </label>
+            <button class="sort-delete">&#10006;
+            </button>
+        </div>
+        <div class="navigation-bar">
+            <a id="add-news" class="link-white my-flex-block">Добавить новость</a>
+        </div>
+        <div class="search">
+            <input class="search-bar" type="search" name="q" placeholder="Поиск по сайту">
+            <input class="search-button" type="submit" value="Найти">
+        </div>
+    </div>
+</div>
+<div class="sort-tools">
+    <div class="names">
+        Сортировать по автору:
+        <select title="authors" class="authors">
+        </select>
+    </div>
+    <div class="dates">
+        Сортировать по дате: от
+        <input type="date" title="date" class="start-date"> до
+        <input type="date" title="date" class="finish-date">
+        <button class="sort-button">Search</button>
+    </div>
+
+</div>
+<div class="overlay"></div>
+<div class="body">
+    <div class="news-feed">
+
+    </div>
+    <button class="load-more">
+        Load more
+    </button>
+</div>
+<footer style="margin-left: 10vw">Created by MS<br>resspectyn@gmail.com<br>BSU, Minsk, 2017</footer>
+</body>
+<template id="logined-user-news">
+    <div class="short-news">
+        <h2 class="head-short-news"></h2>
+        <p class="short-text"></p>
+        <div class="flex-interface">
+            <a href="#" id="edit">
+                <img src="../icons/pencil.png"> </a>
+            <a href="#" id="delete">
+                <img src="../icons/trash.png"></a>
+        </div>
+        <footer></footer>
+    </div>
+</template>
+<template id="unlogined-user-news">
+    <div class="short-news">
+        <h2 class="head-short-news"></h2>
+        <p class="short-text"></p>
+        <footer></footer>
+    </div>
+</template>
+<template id="login-window">
+    <div class="login-window">
+        <button class="close-window">&#10006;</button>
+            <div class="flex-login-inputs">
+                <input type="text" placeholder="Login" class="login" name="login">
+                <input type="text" placeholder="Password" class="password" name="password">
+            </div>
+        <button class="login-button">Log in</button>
+    </div>
+</template>
+<template id="creating-news">
+    <div class="create-news">
+        <button class="close-window">&#10006;</button>
+        <div class="flex-all-creations">
+            <div class="flex-creation">
+                <input type="file" class="create-news-image" align="left">
+                <div class="flex-inputs">
+                    <input type="text" placeholder="Title" class="create-news-title" title="Title">
+                    <input type="text" placeholder="Summary" class="create-news-summary" title="Summary">
+                </div>
+            </div>
+            <textarea placeholder="Content" class="create-news-content" title="Content"></textarea>
+        </div>
+        <button class="send-news" id="">
+            <i class="fa fa-plus"></i>Send
+        </button>
+    </div>
+</template>
+<template id="show-news">
+    <div class="show-news">
+        <button class="close-window">&#10006;</button>
+        <h1 class="show-title" title="Title"></h1>
+        <h2 class="show-summary" title="Summary"></h2>
+        <p class="show-content" title="Content"></p>
+        <footer></footer>
+    </div>
+</template>
+<template id="edit-news">
+    <div class="edit-news">
+        <button class="close-window">&#10006;</button>
+        <input type="text" placeholder="Title" class="text-title" title="Title" value="' + article.Title + '">
+        <input type="text" placeholder="Summary" class="text-summary" title="Summary" value="' + article.Summary + '">
+        <textarea placeholder="Content" class="text-content" title="Content"></textarea>
+        <button class="send-news">
+            <i class="fa fa-paper-plane"></i>Send
+        </button>
+    </div>
+</template>
+<script src="../scripts/serverCommands.js"></script>
+<script src="../scripts/script.js"></script>
+</html>
